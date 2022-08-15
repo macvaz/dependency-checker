@@ -1,0 +1,20 @@
+:toc:
+:icons: font
+:source-highlighter: prettify
+:project_id: tut-spring-boot-kotlin
+:images: https://raw.githubusercontent.com/spring-guides/tut-spring-boot-kotlin/master/images
+:tabsize: 2
+
+
+== Project creation: Kotlin + Gradle
+
+The project was created using Spring Initializr. The dependencies added were:
+
+[source]
+----
+	- Spring Web
+	- Mustache
+	- Spring Data JPA
+	- H2 Database
+	- Spring Boot DevTools
+----
