@@ -24,3 +24,29 @@ class User(
 	var description: String? = null,
 	@Id @GeneratedValue var id: Long? = null
 )
+
+@Entity
+class IngestedFile(
+    var camIngestor: String,
+    var fileKey: String,
+    var partition1: String,
+    var partition2: String? = null,
+    var duration: Int,
+    var startedAt: LocalDateTime,
+    var endedAt: LocalDateTime,
+    @Id @GeneratedValue var id: Long? = null
+)
+
+@Entity
+class ProcessDependencyChecklist(
+    var fileKey: String,
+    var camIngestor: String,
+    @ManyToOne var process: Process,
+    @Id @GeneratedValue var id: Long? = null
+)
+
+@Entity
+class Process(
+    var name: String,
+    @Id @GeneratedValue var id: Long? = null
+)

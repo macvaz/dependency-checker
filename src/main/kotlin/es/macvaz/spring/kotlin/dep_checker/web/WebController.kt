@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.server.ResponseStatusException
 
-import es.macvaz.spring.kotlin.dep_checker.AppProperties
 import es.macvaz.spring.kotlin.dep_checker.model.*
 import es.macvaz.spring.kotlin.dep_checker.format
 
+/**
+ * Main controller for the Server-Side HTML user interface. Relies on  mustache templates for the HTML rendering
+ */
 @Controller
-class HtmlController(
-	private val repository: ArticleRepository, private val properties: AppProperties) {
+class WebController(
+	private val repository: ArticleRepository) {
 
 	@GetMapping("/")
-	fun blog(model: Model): String {
-		model["title"] = properties.title
-		model["banner"] = properties.banner
+	fun home(model: Model): String {
 		model["articles"] = repository.findAllByOrderByAddedAtDesc().map { it.render() }
-		return "blog"
+		return "home_page"
 	}
 
 	@GetMapping("/article/{slug}")
@@ -30,9 +30,8 @@ class HtmlController(
 				.findBySlug(slug)
 				?.render()
 				?: throw ResponseStatusException(NOT_FOUND, "This article does not exist")
-		model["title"] = article.title
 		model["article"] = article
-		return "article"
+		return "process_page"
 	}
 
 	fun Article.render() = RenderedArticle(
@@ -45,11 +44,10 @@ class HtmlController(
 	)
 
 	data class RenderedArticle(
-        val slug: String,
-        val title: String,
-        val headline: String,
-        val content: String,
-        val author: User,
-        val addedAt: String)
-
+		val slug: String,
+		val title: String,
+		val headline: String,
+		val content: String,
+		val author: User,
+		val addedAt: String)
 }
