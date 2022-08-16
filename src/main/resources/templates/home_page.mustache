@@ -1,26 +1,30 @@
 {{> header}}
 
-<h1>Top-level list of executed processes in the datalake</h1>
+<h1>Top-level list of executed file ingestion processes</h1>
 
-<div class="articles">
+<div class="processes">
 
-	<section>
-		<header class="banner">
-			<h2 class="banner-title">Top-level list of executed processes in the datalake</h2>
-		</header>
-	</section>
+    <table>
+        <tr>
+            <th>File key</th>
+            <th>User</th>
+            <th>CAM Ingestor</th>
+            <th>Status</th>
+            <th>Started at</th>
+            <th>Ended at</th>
+        </tr>
 
-	{{#articles}}
-		<section>
-			<header class="article-header">
-				<h2 class="article-title"><a href="/article/{{slug}}">{{title}}</a></h2>
-				<div class="article-meta">By  <strong>{{author.firstname}}</strong>, on <strong>{{addedAt}}</strong></div>
-			</header>
-			<div class="article-headline">
-				{{headline}}
-			</div>
-		</section>
-	{{/articles}}
+        {{#ingestedFiles}}
+            <tr>
+                <td><a href="/ingestedFile/{{id}}">{{fileKey}}</a></td>
+                <td>{{user}}</td>
+                <td>{{camIngestor}}</td>
+                <td>{{status}}</td>
+                <td>{{startedAt}}</td>
+                <td>{{endedAt}}</td>
+            </tr>
+        {{/ingestedFiles}}
+    </table>
 </div>
 
 {{> footer}}

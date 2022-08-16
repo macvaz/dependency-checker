@@ -12,3 +12,9 @@ interface UserRepository : CrudRepository<User, Long> {
 	fun findAllByOrderByFirstnameDesc(): Iterable<User>
 }
 
+interface IngestedFileRepository : CrudRepository<IngestedFile, Long> {}
+
+interface ProcessRepository : CrudRepository<Process, Long> {}
+
+interface ChecklistRepository: CrudRepository<ProcessChecklist, Long> {}
+

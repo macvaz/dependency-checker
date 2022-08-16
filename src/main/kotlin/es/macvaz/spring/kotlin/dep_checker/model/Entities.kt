@@ -24,6 +24,10 @@ class User(
 	var description: String? = null,
 	@Id @GeneratedValue var id: Long? = null
 )
+enum class ProcessStatus {
+    OK, RUNNING, KO
+}
+
 
 @Entity
 class IngestedFile(
@@ -32,21 +36,31 @@ class IngestedFile(
     var partition1: String,
     var partition2: String? = null,
     var duration: Int,
+    var user: String,
     var startedAt: LocalDateTime,
     var endedAt: LocalDateTime,
+    @Enumerated(EnumType.STRING) @Column(length = 8)
+    var status: ProcessStatus,
     @Id @GeneratedValue var id: Long? = null
 )
 
 @Entity
-class ProcessDependencyChecklist(
+class ProcessChecklist(
     var fileKey: String,
     var camIngestor: String,
     @ManyToOne var process: Process,
     @Id @GeneratedValue var id: Long? = null
 )
 
+enum class Periodicity {
+    DAILY, WEEKLY, MONTHLY, YEARLY
+}
+
 @Entity
 class Process(
     var name: String,
+    var description: String,
+    @Enumerated(EnumType.STRING) @Column(length = 8)
+    var periodicity: Periodicity,
     @Id @GeneratedValue var id: Long? = null
 )
