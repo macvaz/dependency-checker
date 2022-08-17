@@ -8,7 +8,7 @@ import es.macvaz.spring.kotlin.dep_checker.model.*
 
 @RestController
 @RequestMapping("/api/ingestedFile")
-class ArticleController(private val repository: IngestedFileRepository) {
+class IngestedFileController(private val repository: IngestedFileRepository) {
 
 	@GetMapping("/")
 	fun findAll() = repository.findAll()
