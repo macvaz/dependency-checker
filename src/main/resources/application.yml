@@ -11,3 +11,8 @@ kafka:
     ingestion:
       name: ingestion
       group: ppr
+
+server:
+  error:
+    whitelabel:
+      enabled: false
