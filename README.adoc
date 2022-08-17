@@ -17,7 +17,7 @@ The project was created using Spring Initializr. The dependencies added were:
 	- Spring Data JPA
 	- H2 Database
 	- Spring Boot DevTools
-	- Spring Cloud (for kafka integration)
+	- Spring Kafka
 	- Liquibase (for SQL DDL management)
 	- Actuator (application monitoring & metric collection)
 ----
