@@ -12,8 +12,8 @@ The project was created using Spring Initializr. The dependencies added were:
 
 [source]
 ----
-	- Spring Web
-	- Mustache
+	- Spring Web (for api development)
+	- Mustache (for server-side HTML render)
 	- Spring Data JPA
 	- H2 Database
 	- Spring Boot DevTools
