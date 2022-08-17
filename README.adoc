@@ -6,7 +6,7 @@
 :tabsize: 2
 
 
-== Project creation: Kotlin + Gradle
+== Project creation: Spring + Kotlin + Gradle
 
 The project was created using Spring Initializr. The dependencies added were:
 
