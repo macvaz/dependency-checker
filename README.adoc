@@ -11,7 +11,7 @@ The project was created using Spring Initializr. The dependencies added were:
 
 [source]
 ----
-	- Spring Web (for src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/api development)
+	- Spring Web (for https://github.com/macvaz/dependency-checker/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/api development)
 	- Mustache (for server-side HTML render)
 	- Spring Data JPA
 	- H2 Database
