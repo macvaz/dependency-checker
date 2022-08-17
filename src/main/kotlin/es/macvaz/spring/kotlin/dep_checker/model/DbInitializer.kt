@@ -1,4 +1,4 @@
-package es.macvaz.spring.kotlin.dep_checker
+package es.macvaz.spring.kotlin.dep_checker.model
 
 import java.time.LocalDateTime
 
@@ -6,11 +6,9 @@ import org.springframework.boot.ApplicationRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
-import es.macvaz.spring.kotlin.dep_checker.model.*
-
 
 @Configuration
-class AppRunner {
+class DbInitializer {
 
     @Bean
     fun databaseInitializer(
