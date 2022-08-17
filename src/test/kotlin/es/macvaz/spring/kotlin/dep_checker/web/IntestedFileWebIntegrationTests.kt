@@ -1,4 +1,4 @@
-package es.macvaz.spring.kotlin.dep_checker
+package es.macvaz.spring.kotlin.dep_checker.web
 
 import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.AfterAll
@@ -11,7 +11,7 @@ import org.springframework.boot.test.web.client.getForEntity
 import org.springframework.http.HttpStatus
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class IntegrationTests(
+class IntestedFileWebIntegrationTests(
 	@Autowired val restTemplate: TestRestTemplate) {
 
 	@BeforeAll
@@ -24,16 +24,7 @@ class IntegrationTests(
 		println(">> Assert home page title, content and status code")
 		val entity = restTemplate.getForEntity<String>("/")
 		assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
-		assertThat(entity.body).contains("<h1>Top-level list of executed processes in the datalake</h1>")
-	}
-
-	@Test
-	fun `Assert process page title, content and status code`() {
-		println(">> Assert process page title, content and status code")
-		val title = "Reactor Aluminium has landed"
-		val entity = restTemplate.getForEntity<String>("/article/${title.toSlug()}")
-		assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
-		assertThat(entity.body).contains(title, "Lorem ipsum", "dolor sit amet")
+		assertThat(entity.body).contains("<h1>Top-level list of executed file ingestion processes</h1>")
 	}
 
 	@AfterAll
