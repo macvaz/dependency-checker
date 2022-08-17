@@ -5,13 +5,13 @@
 :tabsize: 2
 
 
-== Project creation: Spring Boot + Kotlin + Gradle
+== Technology stack: Spring Boot + Kotlin + Gradle
 
 The project was created using Spring Initializr. The dependencies added were:
 
 [source]
 ----
-	- Spring Web (for https://github.com/macvaz/dependency-checker/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/api development)
+	- Spring Web (for api development)
 	- Mustache (for server-side HTML render)
 	- Spring Data JPA
 	- H2 Database
@@ -20,3 +20,13 @@ The project was created using Spring Initializr. The dependencies added were:
 	- Liquibase (for SQL DDL management)
 	- Actuator (application monitoring & metric collection)
 ----
+
+== Project structure
+
+The source code is divided in 3 main subsystems built on Spring Boot:
+
+ - https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/api[REST Services API]
+- https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/kafka[Kafka consumer]
+- https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/web[Operational website]
+
+All Spring Data source code (domain objets and data repositories) are places in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/model[model] package.
