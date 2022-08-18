@@ -7,8 +7,6 @@
 
 == Technology stack
 
-This project is based on
-
 === Core technologies
 
 [source]
@@ -52,5 +50,5 @@ The project is divided in 3 main subsystems built on Spring Boot:
 - https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/kafka[Kafka consumer]
 - https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/web[Operational website]
 
-=== Data model 
+=== Data model
 All Spring Data source code (domain objects and data repositories) are placed in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/model[model] package.
