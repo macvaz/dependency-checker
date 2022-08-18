@@ -37,7 +37,6 @@
 [source]
 ----
   - Driver     : H2 Database
-  - Migrations : Liquibase
 ----
 
 == Project structure
