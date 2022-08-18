@@ -5,9 +5,18 @@
 :tabsize: 2
 
 
-== Technology stack: Spring Boot + Kotlin + Gradle
+== Technology stack
 
-The project was created using Spring Initializr. The dependencies added were:
+Base technologies used in the project:
+
+[source]
+----
+	- Framework: Spring Boot (v2.7.2)
+	- Build tool: Gradle (v.7.4.1)
+	- Programming language: Kotlin (v.1.6.21)
+----
+
+Spring starters added as software dependencies:
 
 [source]
 ----
@@ -29,4 +38,4 @@ The source code is divided in 3 main subsystems built on Spring Boot:
 - https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/kafka[Kafka consumer]
 - https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/web[Operational website]
 
-All Spring Data source code (domain objets and data repositories) are places in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/model[model] package.
+All Spring Data source code (domain objects and data repositories) are placed in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/model[model] package.
