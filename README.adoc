@@ -4,41 +4,40 @@
 :project_id: dependency-checker
 :tabsize: 2
 
-
 == Technology stack
 
 === Core technologies
 
 [source]
 ----
-	- Framework:  Spring Boot (v2.7.2)
-	- Build tool: Gradle (v.7.4.1)
-	- Language:   Kotlin (v.1.6.21)
+  - Framework  : Spring Boot (v2.7.2)
+  - Build tool : Gradle (v.7.4.1)
+  - Language   : Kotlin (v.1.6.21)
 ----
 
 === Spring Boot starters
 
 [source]
 ----
-	- API dev:        Spring Web
-	- Website dev:    Mustache
-	- DB access:      Spring Data JPA
-	- DDL versioning: Liquibase
-	- App metrics:    Actuator
+  - API dev     : Spring Web
+  - Website dev : Mustache
+  - DB access   : Spring Data JPA
+  - App metrics : Actuator
 ----
 
 === Other Spring dependencies
 
 [source]
 ----
-    - Spring Kafka
+  - Spring Kafka
 ----
 
-=== Database driver
+=== Database dependencies
 
 [source]
 ----
-    - H2 Database
+  - Driver     : H2 Database
+  - Migrations : Liquibase
 ----
 
 == Project structure
@@ -46,9 +45,9 @@
 === Subsystems
 The project is divided in 3 main subsystems built on Spring Boot:
 
- - https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/api[REST Services API]
-- https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/kafka[Kafka consumer]
-- https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/web[Operational website]
+* https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/api[REST Services API]
+* https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/kafka[Kafka consumer]
+* https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/web[Operational website]
 
 === Data model
 All Spring Data source code (domain objects and data repositories) are placed in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/model[model] package.
