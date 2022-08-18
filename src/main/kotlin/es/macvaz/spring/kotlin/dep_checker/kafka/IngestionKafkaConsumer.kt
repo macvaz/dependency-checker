@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component
 class IngestionKafkaConsumer {
     private val logger = LoggerFactory.getLogger(javaClass)
 
-    @KafkaListener(topics = ["\${kafka.topics.ingestion.name}"], groupId = "{kafka.topics.ingestion.group}")
+    @KafkaListener(topics = ["\${kafka.topics.ingestion.name}"], groupId = "\${kafka.topics.ingestion.group}")
     fun listenGroup(consumerRecord: ConsumerRecord<Any, Any>, ack: Acknowledgment) {
         logger.info("Message received {}", consumerRecord)
         ack.acknowledge()

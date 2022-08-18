@@ -12,7 +12,7 @@ kafka:
   topics:
     ingestion:
       name: ingestion
-      group: ppr
+      group: dependency-checker
 
 server:
   error:
