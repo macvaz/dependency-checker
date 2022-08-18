@@ -7,35 +7,50 @@
 
 == Technology stack
 
-Base technologies used in the project:
+This project is based on
+
+=== Core technologies
 
 [source]
 ----
-	- Framework: Spring Boot (v2.7.2)
+	- Framework:  Spring Boot (v2.7.2)
 	- Build tool: Gradle (v.7.4.1)
-	- Programming language: Kotlin (v.1.6.21)
+	- Language:   Kotlin (v.1.6.21)
 ----
 
-Spring starters added as software dependencies:
+=== Spring Boot starters
 
 [source]
 ----
-	- Spring Web (for api development)
-	- Mustache (for server-side HTML render)
-	- Spring Data JPA
-	- H2 Database
-	- Spring Boot DevTools
-	- Spring Kafka
-	- Liquibase (for SQL DDL management)
-	- Actuator (application monitoring & metric collection)
+	- API dev:        Spring Web
+	- Website dev:    Mustache
+	- DB access:      Spring Data JPA
+	- DDL versioning: Liquibase
+	- App metrics:    Actuator
+----
+
+=== Other Spring dependencies
+
+[source]
+----
+    - Spring Kafka
+----
+
+=== Database driver
+
+[source]
+----
+    - H2 Database
 ----
 
 == Project structure
 
-The source code is divided in 3 main subsystems built on Spring Boot:
+=== Subsystems
+The project is divided in 3 main subsystems built on Spring Boot:
 
  - https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/api[REST Services API]
 - https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/kafka[Kafka consumer]
 - https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/web[Operational website]
 
+=== Data model 
 All Spring Data source code (domain objects and data repositories) are placed in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/model[model] package.
