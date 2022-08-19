@@ -1,5 +1,7 @@
 package es.macvaz.spring.kotlin.dep_checker.web
 
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.server.ResponseStatusException
 import org.springframework.http.HttpStatus.*
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -8,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping
 
 import es.macvaz.spring.kotlin.dep_checker.model.*
 import es.macvaz.spring.kotlin.dep_checker.format
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.server.ResponseStatusException
+import es.macvaz.spring.kotlin.dep_checker.serializations.RenderedIngestedFile
+
 
 /**
  * Main controller for the Server-Side HTML user interface. Relies on  mustache templates for the HTML rendering
@@ -47,16 +49,5 @@ class IngestedFileWebEndpoints(
 		id!!
 	)
 
-	data class RenderedIngestedFile(
-		val camIngestor: String,
-		val fileKey: String,
-		val partition1: String,
-		val partition2: String?,
-		val duration: Int,
-		val user: String,
-		val status: String,
-		val startedAt: String,
-		val endedAt: String,
-		var id: Long
-	)
+
 }
