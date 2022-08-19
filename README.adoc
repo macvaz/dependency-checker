@@ -84,9 +84,9 @@ A Tomcat embedded web server is started at http://localhost:8080. This Tomcat se
   - Website
 ----
 
-A third microservice (a Kafka listener) is also started but it doesn't have any frontend.
+A third microservice (a Kafka listener) is also started but it doesn't have any frontend. It also requires a kafka server and a topic up and running.
 
-In order to fully understant the microservices and it's source code packages, check next point.
+In order to fully understand the microservices and it's source code packages, check next chapter.
 
 == 3. Project structure
 
@@ -118,6 +118,20 @@ In order to start a local kafka server, just follow the guide. Once installed,  
   $ bin/zookeeper-server-start.sh config/zookeeper.properties
   $ bin/kafka-server-start.sh config/server.properties
 ----
+
+This microservice listens to a kafka topic fed by a file ingestor batch engine. When a file ingestion starts and finishes, an event is sent to the topic by this external component.
+
+In order to simulate that external integration in a local development environment, the easiest way is to send a message to the local topic using the kafka-console-producer tool. The messages exchanged between the file ingestion engine and the dependency tracker are simple strings structured as JSON messages.
+
+One example of how to send a JSON-based message to a topic using the kafka-console-producer is:
+
+[source]
+----
+  $ bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092
+    {"name": "nombre"}
+----
+
+
 
 === Data model
 All Spring Data source code (domain objects and data repositories) are placed in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/model[model] package.
