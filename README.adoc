@@ -4,7 +4,7 @@
 :project_id: dependency-checker
 :tabsize: 2
 
-== Technology stack
+== 1. Technology stack
 
 === Core technologies
 
@@ -39,7 +39,23 @@
   - Driver : H2 Database
 ----
 
-== Project structure
+== 2. Project build and boot
+
+Since the build tool is gradle, standard build tasks are used. For build and unit testing, just run:
+
+[source]
+----
+  $ ./gradlew build
+----
+
+For starting the system, just use standard Spring boot gradle tasks:
+
+[source]
+----
+  $ ./gradlew bootRun
+----
+
+== 3. Project structure
 
 === Microservices
 The project is divided in 3 main subsystems/microservices built on Spring Boot:
@@ -73,7 +89,7 @@ In order to start a local kafka server, just follow the guide. Once installed,  
 === Data model
 All Spring Data source code (domain objects and data repositories) are placed in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/model[model] package.
 
-== Future work
+== 4. Future work
 
 Dependencies not activated yet
 
