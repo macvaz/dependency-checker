@@ -41,12 +41,34 @@
 
 == Project structure
 
-=== Subsystems
-The project is divided in 3 main subsystems built on Spring Boot:
+=== Microservices
+The project is divided in 3 main subsystems/microservices built on Spring Boot:
 
-* https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/api[REST Services API]
-* https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/kafka[Kafka consumer]
-* https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/web[Operational website]
+==== 1. REST API microservice
+Source code for the REST API is in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/api[api] package.
+
+All API endpoints are placed under this preffix : http://localhost:8080/api/.
+
+Currently, the only endpoints implemented are regarding 'IngestedFile' entity. One example is this service: http://localhost:8080/api/ingestedFile/
+
+==== 2. Website microservice
+Source code for the operational website is in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/web[web] package.
+
+The website microservice is exposed at: http://localhost:8080/
+
+==== 3. Kafka consumer microservice
+
+Source code for the Kafka consumer is in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/kafka[kafka] package.
+
+This microservice requires a kafka broker available in order to boot. A great introductory documentation for Apache Kafka is the https://kafka.apache.org/quickstart[official kickstart guide ].
+
+In order to start a local kafka server, just follow the guide. Once installed,  start zookeeper and kafka servers:
+
+[source]
+----
+  $ bin/zookeeper-server-start.sh config/zookeeper.properties
+  $ bin/kafka-server-start.sh config/server.properties
+----
 
 === Data model
 All Spring Data source code (domain objects and data repositories) are placed in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/model[model] package.
