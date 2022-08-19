@@ -53,7 +53,40 @@ For starting the system, just use standard Spring boot gradle tasks:
 [source]
 ----
   $ ./gradlew bootRun
+
+15:01:40.362 [Thread-0] DEBUG org.springframework.boot.devtools.restart.classloader.RestartClassLoader - Created RestartClassLoader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@49eeff94
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.2)
+
+2022-08-19 15:01:40.573  INFO 13198 --- [  restartedMain] e.m.s.kotlin.dep_checker.ApplicationKt   : Starting ApplicationKt using Java 17 on asus with PID 13198 (/home/mac/IdeaProjects/dep_checker/build/classes/kotlin/main started by mac in /home/mac/IdeaProjects/dep_checker)
+2022-08-19 15:01:40.574  INFO 13198 --- [  restartedMain] e.m.s.kotlin.dep_checker.ApplicationKt   : No active profile set, falling back to 1 default profile: "default"
+2022-08-19 15:01:40.609  INFO 13198 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-19 15:01:40.609  INFO 13198 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-19 15:01:41.099  INFO 13198 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-19 15:01:41.124  INFO 13198 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 3 JPA repository interfaces.
+2022-08-19 15:01:41.460  INFO 13198 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-08-19 15:01:41.466  INFO 13198 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-19 15:01:41.467  INFO 13198 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+...
 ----
+
+A Tomcat embedded web server is started at http://localhost:8080. This Tomcat server is used to expose 2 different web-based microservices:
+
+[source]
+----
+  - REST API
+  - Website
+----
+
+A third microservice (a Kafka listener) is also started but it doesn't have any frontend.
+
+In order to fully understant the microservices and it's source code packages, check next point.
 
 == 3. Project structure
 
