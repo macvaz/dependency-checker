@@ -2,13 +2,11 @@ package es.macvaz.spring.kotlin.dep_checker.serializations
 
 import java.time.LocalDateTime
 
-import kotlinx.serialization.json.JsonElement
-
 import es.macvaz.spring.kotlin.dep_checker.model.IngestedFile
 import es.macvaz.spring.kotlin.dep_checker.model.ProcessStatus
 
-fun getValue(map: Map<String, JsonElement>, key: String) = map[key].toString()
-fun getNullableValue(map: Map<String, JsonElement>, key: String) = map[key]?.toString()
+fun getValue(map: Map<String, String>, key: String) = getNullableValue(map, key).toString()
+fun getNullableValue(map: Map<String, String>, key: String) = map[key]
 
 data class RenderedIngestedFile(
     val camIngestor: String,
@@ -24,7 +22,7 @@ data class RenderedIngestedFile(
 )
 
 object IngestedFileSerializer {
-    fun fromMap(map: Map<String, JsonElement>) : IngestedFile {
+    fun fromMap(map: Map<String, String>) : IngestedFile {
         val data = IngestedFile(
             camIngestor = getValue(map, "camIngestor"),
             fileKey = getValue(map, "fileKey"),
