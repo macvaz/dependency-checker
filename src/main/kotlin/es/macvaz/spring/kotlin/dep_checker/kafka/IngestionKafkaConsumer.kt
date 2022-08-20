@@ -22,7 +22,9 @@ class IngestionKafkaConsumer (val repository: IngestedFileRepository) {
         val json = Json.parseToJsonElement(jsonString)
         val message = json.jsonObject.toMap()
 
-        when (message["message_type"]?.toString()) {
+        logger.info(message["event_type"]?.toString())
+
+        when (message["event_type"]?.toString()) {
             "ingested_file" -> {
                 repository.save(IngestedFileSerializer.fromMap(message))
             }

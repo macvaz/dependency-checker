@@ -6,7 +6,9 @@ import kotlinx.serialization.json.JsonElement
 
 import es.macvaz.spring.kotlin.dep_checker.model.IngestedFile
 import es.macvaz.spring.kotlin.dep_checker.model.ProcessStatus
-import es.macvaz.spring.kotlin.dep_checker.model.getValue
+
+fun getValue(map: Map<String, JsonElement>, key: String) = map[key].toString()
+fun getNullableValue(map: Map<String, JsonElement>, key: String) = map[key]?.toString()
 
 data class RenderedIngestedFile(
     val camIngestor: String,
@@ -27,7 +29,7 @@ object IngestedFileSerializer {
             camIngestor = getValue(map, "camIngestor"),
             fileKey = getValue(map, "fileKey"),
             partition1 = getValue(map, "partition1"),
-            partition2 = getValue(map, "partition2"),
+            partition2 = getNullableValue(map, "partition2"),
             duration = getValue(map, "duration").toInt(),
             user = getValue(map, "user"),
             startedAt = LocalDateTime.now(),

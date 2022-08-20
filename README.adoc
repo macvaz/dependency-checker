@@ -123,12 +123,19 @@ This microservice listens to a kafka topic fed by a file ingestor batch engine. 
 
 In order to simulate that external integration in a local development environment, the easiest way is to send a message to the local topic using the kafka-console-producer tool. The messages exchanged between the file ingestion engine and the dependency tracker are simple strings structured as JSON messages.
 
+The kafka topic name is set in the application.yml file. By default, it is set to: 'ingestion'. A topic with this name should be created using:
+
+[source]
+----
+  $ bin/kafka-topics.sh --create --topic ingestion --bootstrap-server localhost:9092
+----
+
 One example of how to send a JSON-based message to a topic using the kafka-console-producer is:
 
 [source]
 ----
-  $ bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092
-    {"name": "nombre"}
+  $ bin/kafka-console-producer.sh --topic ingestion --bootstrap-server localhost:9092
+    {"event_type": "ingested_file", "camIngestor": "AAAAA", "fileKey": "fich1", "partition1": "199206", "duration": "20", "user": "user1", "status": "RUNNING"}
 ----
 
 The goal of the kafka consumer microservice is to store specific business events (like IngestedFiles) into de IngestedFile database table. In order to do uso, it requires to use the IngestedFileRepository interface created of the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/model[model] package.
