@@ -4,17 +4,17 @@ import org.springframework.http.HttpStatus.*
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.server.ResponseStatusException
 
-import es.macvaz.spring.kotlin.dep_checker.service.IngestedFileService
+import es.macvaz.spring.kotlin.dep_checker.model.IngestedFileRepository
 
 @RestController
 @RequestMapping("/api/ingestedFile")
-class IngestedFileController(private val service: IngestedFileService) {
+class IngestedFileController(private val repository: IngestedFileRepository) {
 
 	@GetMapping("/")
-	fun findAll() = service.findAll()
+	fun findAll() = repository.findAll()
 
 	@GetMapping("/{id}")
-	fun findOne(@PathVariable id: Long) = service
+	fun findOne(@PathVariable id: Long) = repository
 		.findById(id).orElse(null)
 		?: throw ResponseStatusException(NOT_FOUND, "This ingestion does not exist")
 

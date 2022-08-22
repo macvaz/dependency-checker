@@ -2,6 +2,7 @@ package es.macvaz.spring.kotlin.dep_checker
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
 class Application
