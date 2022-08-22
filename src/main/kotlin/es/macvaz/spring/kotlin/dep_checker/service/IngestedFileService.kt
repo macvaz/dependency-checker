@@ -2,7 +2,7 @@ package es.macvaz.spring.kotlin.dep_checker.service
 
 import org.springframework.stereotype.Service
 
-import es.macvaz.spring.kotlin.dep_checker.model.IngestedFileRepository
+import es.macvaz.spring.kotlin.dep_checker.repository.IngestedFileRepository
 
 @Service
 class IngestedFileService(val repository: IngestedFileRepository) {

@@ -1,5 +1,7 @@
 package es.macvaz.spring.kotlin.dep_checker.model
 
+import java.time.LocalDateTime
+
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -7,8 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager
 import org.springframework.data.repository.findByIdOrNull
 
-import es.macvaz.spring.kotlin.dep_checker.model.*
-import java.time.LocalDateTime
+import es.macvaz.spring.kotlin.dep_checker.repository.IngestedFileRepository
 
 @DataJpaTest
 class RepositoriesTests @Autowired constructor(

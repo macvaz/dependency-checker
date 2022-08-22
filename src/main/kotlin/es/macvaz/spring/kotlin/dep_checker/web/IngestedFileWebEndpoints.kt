@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping
 
 import es.macvaz.spring.kotlin.dep_checker.model.*
 import es.macvaz.spring.kotlin.dep_checker.format
+import es.macvaz.spring.kotlin.dep_checker.repository.IngestedFileRepository
 import es.macvaz.spring.kotlin.dep_checker.serialization.RenderedIngestedFile
 
 
@@ -17,8 +18,7 @@ import es.macvaz.spring.kotlin.dep_checker.serialization.RenderedIngestedFile
  * Main controller for the Server-Side HTML user interface. Relies on  mustache templates for the HTML rendering
  */
 @Controller
-class IngestedFileWebEndpoints(
-	private val fileRepo: IngestedFileRepository) {
+class IngestedFileWebEndpoints(private val fileRepo: IngestedFileRepository) {
 
 	@GetMapping("/")
 	fun homePage(model: Model): String {

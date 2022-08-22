@@ -9,7 +9,7 @@ import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Component
 import kotlinx.serialization.SerializationException
 
-import es.macvaz.spring.kotlin.dep_checker.model.IngestedFileRepository
+import es.macvaz.spring.kotlin.dep_checker.repository.IngestedFileRepository
 import es.macvaz.spring.kotlin.dep_checker.serialization.IngestedFileSerializer
 
 object EventTypes {

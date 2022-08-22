@@ -6,6 +6,9 @@ import org.springframework.boot.ApplicationRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
+import es.macvaz.spring.kotlin.dep_checker.repository.ChecklistRepository
+import es.macvaz.spring.kotlin.dep_checker.repository.IngestedFileRepository
+import es.macvaz.spring.kotlin.dep_checker.repository.ProcessRepository
 
 @Configuration
 class DbInitializer {
@@ -14,7 +17,8 @@ class DbInitializer {
     fun databaseInitializer(
 		processRepository: ProcessRepository,
 		checklistRepository: ChecklistRepository,
-		ingestedFileRepository: IngestedFileRepository) = ApplicationRunner {
+		ingestedFileRepository: IngestedFileRepository
+	) = ApplicationRunner {
 
 		val process = processRepository.save(
 			Process(

@@ -1,5 +1,7 @@
 package es.macvaz.spring.kotlin.dep_checker.api
 
+import java.time.LocalDateTime
+
 import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
 import org.junit.jupiter.api.Test
@@ -11,13 +13,18 @@ import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 
 import es.macvaz.spring.kotlin.dep_checker.model.*
-import java.time.LocalDateTime
+import es.macvaz.spring.kotlin.dep_checker.repository.IngestedFileRepository
+import es.macvaz.spring.kotlin.dep_checker.service.IngestedFileService
+
 
 @WebMvcTest
 class IngestedFileApiIntegrationTests(@Autowired val mockMvc: MockMvc) {
 
 	@MockkBean
 	lateinit var repository: IngestedFileRepository
+
+	@MockkBean
+	lateinit var service: IngestedFileService
 
 	@Test
 	fun `List ingested files`() {
@@ -32,7 +39,7 @@ class IngestedFileApiIntegrationTests(@Autowired val mockMvc: MockMvc) {
 			endedAt = LocalDateTime.now()
 		)
 
-		every {	repository.findAll() } returns listOf(b1p1)
+		every {	service.findAll() } returns listOf(b1p1)
 		mockMvc.perform(get("/api/ingestedFile/").accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk)
 			.andExpect(content().contentType(MediaType.APPLICATION_JSON))
