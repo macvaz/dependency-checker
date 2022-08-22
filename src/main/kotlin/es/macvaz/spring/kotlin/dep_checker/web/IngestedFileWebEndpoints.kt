@@ -10,25 +10,25 @@ import org.springframework.web.bind.annotation.GetMapping
 
 import es.macvaz.spring.kotlin.dep_checker.model.*
 import es.macvaz.spring.kotlin.dep_checker.format
-import es.macvaz.spring.kotlin.dep_checker.repository.IngestedFileRepository
 import es.macvaz.spring.kotlin.dep_checker.serialization.RenderedIngestedFile
+import es.macvaz.spring.kotlin.dep_checker.service.IngestedFileService
 
 
 /**
  * Main controller for the Server-Side HTML user interface. Relies on  mustache templates for the HTML rendering
  */
 @Controller
-class IngestedFileWebEndpoints(private val fileRepo: IngestedFileRepository) {
+class IngestedFileWebEndpoints(private val service: IngestedFileService) {
 
 	@GetMapping("/")
 	fun homePage(model: Model): String {
-		model["ingestedFiles"] = fileRepo.findAll().map { it.render() }
+		model["ingestedFiles"] = service.findAll().map { it.render() }
 		return "home_page"
 	}
 
 	@GetMapping("/ingestedFile/{id}")
 	fun processPage(@PathVariable id: Long, model: Model): String {
-		val ingestion = fileRepo
+		val ingestion = service
 			.findById(id).orElse(null)
 			?.render()
 			?: throw ResponseStatusException(NOT_FOUND, "This ingestedFile does not exist")
