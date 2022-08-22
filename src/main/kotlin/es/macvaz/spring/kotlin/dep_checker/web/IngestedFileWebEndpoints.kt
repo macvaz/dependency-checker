@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping
 
 import es.macvaz.spring.kotlin.dep_checker.model.*
 import es.macvaz.spring.kotlin.dep_checker.format
-import es.macvaz.spring.kotlin.dep_checker.serializations.RenderedIngestedFile
+import es.macvaz.spring.kotlin.dep_checker.serialization.RenderedIngestedFile
 
 
 /**

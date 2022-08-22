@@ -1,4 +1,4 @@
-package es.macvaz.spring.kotlin.dep_checker.serializations
+package es.macvaz.spring.kotlin.dep_checker.serialization
 
 import java.time.LocalDateTime
 

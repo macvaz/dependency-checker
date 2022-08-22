@@ -7,10 +7,10 @@ import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Component
+import kotlinx.serialization.SerializationException
 
 import es.macvaz.spring.kotlin.dep_checker.model.IngestedFileRepository
-import es.macvaz.spring.kotlin.dep_checker.serializations.IngestedFileSerializer
-import kotlinx.serialization.SerializationException
+import es.macvaz.spring.kotlin.dep_checker.serialization.IngestedFileSerializer
 
 object EventTypes {
     const val Ingestion = "ingested_file"
@@ -23,9 +23,8 @@ class IngestionKafkaConsumer (val repository: IngestedFileRepository) {
     @KafkaListener(topics = ["\${kafka.topics.ingestion.name}"], groupId = "\${kafka.topics.ingestion.group}")
     fun listenGroup(consumerRecord: ConsumerRecord<String, String>) {
         val messageText = consumerRecord.value()
-        val messageMap = try {
-            Json.decodeFromString<Map<String, String>>(messageText)
-        } catch (e: SerializationException) {
+        val messageMap = try { Json.decodeFromString<Map<String, String>>(messageText) }
+        catch (e: SerializationException) {
             logger.error("Serialization error of message: $messageText")
             logger.error(consumerRecord.toString())
             return
