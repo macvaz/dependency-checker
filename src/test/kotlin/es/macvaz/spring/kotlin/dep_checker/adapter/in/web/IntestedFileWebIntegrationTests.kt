@@ -1,4 +1,4 @@
-package es.macvaz.spring.kotlin.dep_checker.web
+package es.macvaz.spring.kotlin.dep_checker.adapter.`in`.web
 
 import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.AfterAll

@@ -1,4 +1,4 @@
-package es.macvaz.spring.kotlin.dep_checker.model
+package es.macvaz.spring.kotlin.dep_checker.adapter.out.persistence
 
 import java.time.LocalDateTime
 
@@ -9,7 +9,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager
 import org.springframework.data.repository.findByIdOrNull
 
-import es.macvaz.spring.kotlin.dep_checker.repository.IngestedFileRepository
+import es.macvaz.spring.kotlin.dep_checker.adapter.out.persistence.IngestedFileRepository
+import es.macvaz.spring.kotlin.dep_checker.domain.IngestedFile
+import es.macvaz.spring.kotlin.dep_checker.domain.ProcessStatus
 
 @DataJpaTest
 class RepositoriesTests @Autowired constructor(

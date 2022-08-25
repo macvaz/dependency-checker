@@ -90,26 +90,28 @@ In order to fully understand the microservices and it's source code packages, ch
 
 == 3. Project structure
 
-=== Microservices
-The project is divided in 3 main subsystems/microservices built on Spring Boot:
+The source code follows a *hexagonal/clean architecture*. Not all principles of this architectural style are in place but at least the packages are created that way
 
-==== 1. REST API microservice
-Source code for the REST API is in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/api[api] package.
+=== Subsystems
+The project is divided in 3 main subsystems built on Spring Boot. All technological (not business) details are structured around the *adapter layer*. All interfaces exposed by the system t be called by another systems are places in *adapter.in* package
+
+==== 1. REST API
+Source code for the REST API is in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/adapter/in/api[adapter.in.api] package.
 
 All API endpoints are placed under this preffix : http://localhost:8080/api/.
 
 Currently, the only endpoints implemented are regarding 'IngestedFile' entity. One example is this service: http://localhost:8080/api/ingestedFile/
 
-==== 2. Website microservice
-Source code for the operational website is in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/web[web] package.
+==== 2. Website
+Source code for the operational website is in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/adapter/in/web[adapter.in.web] package.
 
 The website microservice is exposed at: http://localhost:8080/
 
-==== 3. Kafka consumer microservice
+==== 3. Kafka consumer
 
-Source code for the Kafka consumer is in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/kafka[kafka] package.
+Source code for the Kafka consumer is in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/adapter/in/events[adapter.in.events] package.
 
-This microservice requires a kafka broker available in order to boot. A great introductory documentation for Apache Kafka is the https://kafka.apache.org/quickstart[official kickstart guide ].
+This input interface requires a kafka broker available in order to boot. A great introductory documentation for Apache Kafka is the https://kafka.apache.org/quickstart[official kickstart guide ].
 
 In order to start a local kafka server, just follow the guide. Once installed,  start zookeeper and kafka servers:
 
@@ -140,8 +142,8 @@ One example of how to send a JSON-based message to a topic using the kafka-conso
 
 The goal of the kafka consumer microservice is to store specific business events (like IngestedFiles) into de IngestedFile database table. In order to do uso, it requires to use the IngestedFileRepository interface created of the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/model[model] package.
 
-=== Data model
-All Spring Data source code (domain objects and data repositories) are placed in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/model[model] package.
+=== Data domain
+All domain core entities are placed in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/domain[domain] package.
 
 == 4. Future work
 

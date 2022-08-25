@@ -1,9 +1,9 @@
-package es.macvaz.spring.kotlin.dep_checker.serialization
+package es.macvaz.spring.kotlin.dep_checker.adapter.`in`.api
 
 import java.time.LocalDateTime
 
-import es.macvaz.spring.kotlin.dep_checker.model.IngestedFile
-import es.macvaz.spring.kotlin.dep_checker.model.ProcessStatus
+import es.macvaz.spring.kotlin.dep_checker.domain.IngestedFile
+import es.macvaz.spring.kotlin.dep_checker.domain.ProcessStatus
 
 fun getValue(map: Map<String, String>, key: String) = getNullableValue(map, key).toString()
 fun getNullableValue(map: Map<String, String>, key: String) = map[key]

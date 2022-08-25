@@ -1,8 +1,8 @@
-package es.macvaz.spring.kotlin.dep_checker.service
+package es.macvaz.spring.kotlin.dep_checker.application.service
 
 import org.springframework.stereotype.Service
 
-import es.macvaz.spring.kotlin.dep_checker.repository.IngestedFileRepository
+import es.macvaz.spring.kotlin.dep_checker.adapter.out.persistence.IngestedFileRepository
 
 @Service
 class IngestedFileService(val repository: IngestedFileRepository) {
