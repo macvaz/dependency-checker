@@ -1,4 +1,4 @@
-package es.macvaz.spring.kotlin.dep_checker.adapter.`in`.api
+package es.macvaz.spring.kotlin.dep_checker.application.common
 
 import java.time.LocalDateTime
 

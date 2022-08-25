@@ -13,18 +13,14 @@ import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 
 import es.macvaz.spring.kotlin.dep_checker.domain.*
-import es.macvaz.spring.kotlin.dep_checker.adapter.out.persistence.IngestedFileRepository
-import es.macvaz.spring.kotlin.dep_checker.application.service.IngestedFileService
+import es.macvaz.spring.kotlin.dep_checker.application.service.SearchIngestedFilesService
 
 
 @WebMvcTest
 class IngestedFileApiIntegrationTests(@Autowired val mockMvc: MockMvc) {
 
 	@MockkBean
-	lateinit var repository: IngestedFileRepository
-
-	@MockkBean
-	lateinit var service: IngestedFileService
+	lateinit var service: SearchIngestedFilesService
 
 	@Test
 	fun `List ingested files`() {

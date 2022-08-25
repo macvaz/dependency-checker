@@ -1,6 +1,5 @@
 package es.macvaz.spring.kotlin.dep_checker.adapter.`in`.web
 
-import es.macvaz.spring.kotlin.dep_checker.adapter.`in`.api.RenderedIngestedFile
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.server.ResponseStatusException
 import org.springframework.http.HttpStatus.*
@@ -10,15 +9,17 @@ import org.springframework.ui.set
 import org.springframework.web.bind.annotation.GetMapping
 
 import es.macvaz.spring.kotlin.dep_checker.domain.IngestedFile
-import es.macvaz.spring.kotlin.dep_checker.format
-import es.macvaz.spring.kotlin.dep_checker.application.service.IngestedFileService
+import es.macvaz.spring.kotlin.dep_checker.application.service.SearchIngestedFilesService
+import es.macvaz.spring.kotlin.dep_checker.application.common.RenderedIngestedFile
+import java.time.format.DateTimeFormatterBuilder
+import java.util.*
 
 
 /**
  * Main controller for the Server-Side HTML user interface. Relies on  mustache templates for the HTML rendering
  */
 @Controller
-class IngestedFileWebEndpoints(private val service: IngestedFileService) {
+class IngestedFileWebEndpoints(private val service: SearchIngestedFilesService) {
 
 	@GetMapping("/")
 	fun homePage(model: Model): String {
@@ -29,12 +30,16 @@ class IngestedFileWebEndpoints(private val service: IngestedFileService) {
 	@GetMapping("/ingestedFile/{id}")
 	fun processPage(@PathVariable id: Long, model: Model): String {
 		val ingestion = service
-			.findById(id).orElse(null)
+			.findById(id)
 			?.render()
 			?: throw ResponseStatusException(NOT_FOUND, "This ingestedFile does not exist")
 		model["ingestedFile"] = ingestion
 		return "ingested_file_page"
 	}
+
+	private val englishDateFormatter = DateTimeFormatterBuilder()
+		.appendPattern("yyyy-MM-dd")
+		.toFormatter(Locale.ENGLISH)
 
 	fun IngestedFile.render() = RenderedIngestedFile(
 		camIngestor,
@@ -44,8 +49,8 @@ class IngestedFileWebEndpoints(private val service: IngestedFileService) {
 		duration,
 		user,
 		status.name,
-		startedAt.format(),
-		endedAt.format(),
+		startedAt.format(englishDateFormatter),
+		endedAt.format(englishDateFormatter),
 		id!!
 	)
 

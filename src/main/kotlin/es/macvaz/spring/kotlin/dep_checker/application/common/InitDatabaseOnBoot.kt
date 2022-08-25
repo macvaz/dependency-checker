@@ -1,4 +1,4 @@
-package es.macvaz.spring.kotlin.dep_checker.application.service
+package es.macvaz.spring.kotlin.dep_checker.application.common
 
 import java.time.LocalDateTime
 
@@ -10,7 +10,7 @@ import es.macvaz.spring.kotlin.dep_checker.adapter.out.persistence.*
 import es.macvaz.spring.kotlin.dep_checker.domain.*
 
 @Configuration
-class DbInitializer {
+class InitDatabaseOnBoot {
 
     @Bean
     fun databaseInitializer(
