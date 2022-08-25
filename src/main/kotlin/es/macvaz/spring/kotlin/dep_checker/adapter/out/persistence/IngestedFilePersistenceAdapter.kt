@@ -8,8 +8,8 @@ import es.macvaz.spring.kotlin.dep_checker.domain.IngestedFile
 @Component
 class IngestedFilePersistenceAdapter(private val repository: IngestedFileRepository): IngestedFileRepositoryPort {
 
-    override fun save(ingestion: IngestedFile) {
-        repository.save(ingestion)
+    override fun save(ingestion: IngestedFile): IngestedFile {
+        return repository.save(ingestion)
     }
 
     override fun findById(id: Long): IngestedFile? {

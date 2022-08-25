@@ -7,7 +7,6 @@ import es.macvaz.spring.kotlin.dep_checker.domain.IngestedFile
 import es.macvaz.spring.kotlin.dep_checker.domain.ProcessChecklist
 import es.macvaz.spring.kotlin.dep_checker.domain.Process
 
-@Repository
 interface IngestedFileRepository : CrudRepository<IngestedFile, Long> {
     fun findAllByCamIngestorOrderByFileKeyDesc(cam: String): Iterable<IngestedFile>
     fun findAllByOrderByFileKeyDesc(): Iterable<IngestedFile>

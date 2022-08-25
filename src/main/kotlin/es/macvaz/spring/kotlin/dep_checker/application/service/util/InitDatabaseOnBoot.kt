@@ -1,4 +1,4 @@
-package es.macvaz.spring.kotlin.dep_checker.application.common
+package es.macvaz.spring.kotlin.dep_checker.application.service.util
 
 import java.time.LocalDateTime
 
@@ -6,7 +6,7 @@ import org.springframework.boot.ApplicationRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
-import es.macvaz.spring.kotlin.dep_checker.adapter.out.persistence.*
+import es.macvaz.spring.kotlin.dep_checker.application.port.out.*
 import es.macvaz.spring.kotlin.dep_checker.domain.*
 
 @Configuration
@@ -14,9 +14,9 @@ class InitDatabaseOnBoot {
 
     @Bean
     fun databaseInitializer(
-		processRepository: ProcessRepository,
-		checklistRepository: ChecklistRepository,
-		ingestedFileRepository: IngestedFileRepository
+		processRepository: ProcessRepositoryPort,
+		checklistRepository: ChecklistRepositoryPort,
+		ingestedFileRepository: IngestedFileRepositoryPort
 	) = ApplicationRunner {
 
 		val process = processRepository.save(

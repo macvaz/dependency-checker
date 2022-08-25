@@ -6,8 +6,6 @@ import org.springframework.stereotype.Component
 
 import es.macvaz.spring.kotlin.dep_checker.application.service.RegisterIngestionEventService
 
-
-
 @Component
 class IngestionKafkaConsumer (val service: RegisterIngestionEventService) {
 

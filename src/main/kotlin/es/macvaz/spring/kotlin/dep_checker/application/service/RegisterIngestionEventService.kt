@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service
 import es.macvaz.spring.kotlin.dep_checker.application.port.`in`.RegisterIngestionEventCommand
 import es.macvaz.spring.kotlin.dep_checker.application.port.`in`.RegisterIngestionEventUseCase
 import es.macvaz.spring.kotlin.dep_checker.application.port.out.IngestedFileRepositoryPort
-import es.macvaz.spring.kotlin.dep_checker.application.common.IngestedFileSerializer
+import es.macvaz.spring.kotlin.dep_checker.application.service.util.IngestedFileSerializer
 import es.macvaz.spring.kotlin.dep_checker.domain.IngestedFile
 
 @Service

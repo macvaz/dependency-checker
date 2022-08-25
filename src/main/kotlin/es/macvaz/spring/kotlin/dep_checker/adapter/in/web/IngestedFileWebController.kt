@@ -1,5 +1,8 @@
 package es.macvaz.spring.kotlin.dep_checker.adapter.`in`.web
 
+import java.time.format.DateTimeFormatterBuilder
+import java.util.*
+
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.server.ResponseStatusException
 import org.springframework.http.HttpStatus.*
@@ -10,9 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping
 
 import es.macvaz.spring.kotlin.dep_checker.domain.IngestedFile
 import es.macvaz.spring.kotlin.dep_checker.application.service.SearchIngestedFilesService
-import es.macvaz.spring.kotlin.dep_checker.application.common.RenderedIngestedFile
-import java.time.format.DateTimeFormatterBuilder
-import java.util.*
+import es.macvaz.spring.kotlin.dep_checker.application.service.util.RenderedIngestedFile
 
 
 /**
