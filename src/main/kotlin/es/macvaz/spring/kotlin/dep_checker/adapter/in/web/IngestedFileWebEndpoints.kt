@@ -1,5 +1,6 @@
-package es.macvaz.spring.kotlin.dep_checker.web
+package es.macvaz.spring.kotlin.dep_checker.adapter.`in`.web
 
+import es.macvaz.spring.kotlin.dep_checker.adapter.`in`.api.RenderedIngestedFile
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.server.ResponseStatusException
 import org.springframework.http.HttpStatus.*
@@ -8,10 +9,9 @@ import org.springframework.ui.Model
 import org.springframework.ui.set
 import org.springframework.web.bind.annotation.GetMapping
 
-import es.macvaz.spring.kotlin.dep_checker.model.*
+import es.macvaz.spring.kotlin.dep_checker.domain.IngestedFile
 import es.macvaz.spring.kotlin.dep_checker.format
-import es.macvaz.spring.kotlin.dep_checker.serialization.RenderedIngestedFile
-import es.macvaz.spring.kotlin.dep_checker.service.IngestedFileService
+import es.macvaz.spring.kotlin.dep_checker.application.service.IngestedFileService
 
 
 /**

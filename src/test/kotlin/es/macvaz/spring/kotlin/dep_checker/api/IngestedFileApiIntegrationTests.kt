@@ -12,9 +12,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 
-import es.macvaz.spring.kotlin.dep_checker.model.*
-import es.macvaz.spring.kotlin.dep_checker.repository.IngestedFileRepository
-import es.macvaz.spring.kotlin.dep_checker.service.IngestedFileService
+import es.macvaz.spring.kotlin.dep_checker.domain.*
+import es.macvaz.spring.kotlin.dep_checker.adapter.out.persistence.IngestedFileRepository
+import es.macvaz.spring.kotlin.dep_checker.application.service.IngestedFileService
 
 
 @WebMvcTest

@@ -1,4 +1,4 @@
-package es.macvaz.spring.kotlin.dep_checker.model
+package es.macvaz.spring.kotlin.dep_checker.application.service
 
 import java.time.LocalDateTime
 
@@ -6,9 +6,8 @@ import org.springframework.boot.ApplicationRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
-import es.macvaz.spring.kotlin.dep_checker.repository.ChecklistRepository
-import es.macvaz.spring.kotlin.dep_checker.repository.IngestedFileRepository
-import es.macvaz.spring.kotlin.dep_checker.repository.ProcessRepository
+import es.macvaz.spring.kotlin.dep_checker.adapter.out.persistence.*
+import es.macvaz.spring.kotlin.dep_checker.domain.*
 
 @Configuration
 class DbInitializer {

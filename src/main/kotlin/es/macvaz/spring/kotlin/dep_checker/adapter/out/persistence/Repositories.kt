@@ -1,11 +1,11 @@
-package es.macvaz.spring.kotlin.dep_checker.repository
+package es.macvaz.spring.kotlin.dep_checker.adapter.out.persistence
 
 import org.springframework.data.repository.CrudRepository
-
-import es.macvaz.spring.kotlin.dep_checker.model.IngestedFile
-import es.macvaz.spring.kotlin.dep_checker.model.ProcessChecklist
-import es.macvaz.spring.kotlin.dep_checker.model.Process
 import org.springframework.stereotype.Repository
+
+import es.macvaz.spring.kotlin.dep_checker.domain.IngestedFile
+import es.macvaz.spring.kotlin.dep_checker.domain.ProcessChecklist
+import es.macvaz.spring.kotlin.dep_checker.domain.Process
 
 @Repository
 interface IngestedFileRepository : CrudRepository<IngestedFile, Long> {

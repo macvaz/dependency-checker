@@ -1,10 +1,10 @@
-package es.macvaz.spring.kotlin.dep_checker.api
+package es.macvaz.spring.kotlin.dep_checker.adapter.`in`.api
 
 import org.springframework.http.HttpStatus.*
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.server.ResponseStatusException
 
-import es.macvaz.spring.kotlin.dep_checker.service.IngestedFileService
+import es.macvaz.spring.kotlin.dep_checker.application.service.IngestedFileService
 
 @RestController
 @RequestMapping("/api/ingestedFile")

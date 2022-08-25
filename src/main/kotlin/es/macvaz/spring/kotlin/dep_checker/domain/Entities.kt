@@ -1,4 +1,4 @@
-package es.macvaz.spring.kotlin.dep_checker.model
+package es.macvaz.spring.kotlin.dep_checker.domain
 
 import java.time.LocalDateTime
 import javax.persistence.*

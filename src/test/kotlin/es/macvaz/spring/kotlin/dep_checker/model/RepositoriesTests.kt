@@ -9,7 +9,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager
 import org.springframework.data.repository.findByIdOrNull
 
-import es.macvaz.spring.kotlin.dep_checker.repository.IngestedFileRepository
+import es.macvaz.spring.kotlin.dep_checker.domain.IngestedFile
+import es.macvaz.spring.kotlin.dep_checker.domain.ProcessStatus
+import es.macvaz.spring.kotlin.dep_checker.adapter.out.persistence.IngestedFileRepository
 
 @DataJpaTest
 class RepositoriesTests @Autowired constructor(

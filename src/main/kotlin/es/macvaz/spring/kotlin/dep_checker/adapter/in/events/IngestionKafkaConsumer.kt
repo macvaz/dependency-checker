@@ -9,8 +9,8 @@ import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Component
 import kotlinx.serialization.SerializationException
 
-import es.macvaz.spring.kotlin.dep_checker.repository.IngestedFileRepository
-import es.macvaz.spring.kotlin.dep_checker.serialization.IngestedFileSerializer
+import es.macvaz.spring.kotlin.dep_checker.adapter.out.persistence.IngestedFileRepository
+import es.macvaz.spring.kotlin.dep_checker.adapter.`in`.api.IngestedFileSerializer
 
 object EventTypes {
     const val Ingestion = "ingested_file"
