@@ -140,7 +140,7 @@ One example of how to send a JSON-based message to a topic using the kafka-conso
     {"event_type": "ingested_file", "camIngestor": "AAAAA", "fileKey": "fich1", "partition1": "199206", "duration": "20", "user": "user1", "status": "RUNNING"}
 ----
 
-The goal of the kafka consumer microservice is to store specific business events (like IngestedFiles) into de IngestedFile database table. In order to do uso, it requires to use the IngestedFileRepository interface created of the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/model[model] package.
+The goal of the kafka consumer microservice is to store specific business events (like IngestedFiles) into de IngestedFile database table. In order to do uso, it requires to use the IngestedFileRepository interface created of the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/domain[domain] package.
 
 === Data domain
 All domain core entities are placed in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/domain[domain] package.
