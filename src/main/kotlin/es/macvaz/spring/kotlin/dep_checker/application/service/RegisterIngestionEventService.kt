@@ -10,7 +10,7 @@ import es.macvaz.spring.kotlin.dep_checker.domain.IngestedFile
 
 @Service
 class RegisterIngestionEventService (private val repositoryPort: IngestedFileRepositoryPort): RegisterIngestionEventUseCase {
-    override fun registerIngestion(message: RegisterIngestionEventCommand): IngestedFile? {
+    override fun registerIngestionEvent(message: RegisterIngestionEventCommand): IngestedFile? {
         val ingestedFile = IngestedFileSerializer.fromMap(message)
         repositoryPort.save(ingestedFile)
         return ingestedFile

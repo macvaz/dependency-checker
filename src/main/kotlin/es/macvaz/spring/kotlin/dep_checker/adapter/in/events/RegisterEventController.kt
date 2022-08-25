@@ -1,6 +1,5 @@
 package es.macvaz.spring.kotlin.dep_checker.adapter.`in`.events
 
-import es.macvaz.spring.kotlin.dep_checker.application.port.`in`.RegisterIngestionEventCommand
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Component
@@ -18,6 +17,6 @@ class IngestionKafkaConsumer (val service: RegisterIngestionEventService) {
         val eventType = ConsumerRecordParser.decodeEventType(messageMap)
 
         if (eventType == EventTypes.Ingestion)
-            service.registerIngestion(messageMap!!)
+            service.registerIngestionEvent(messageMap!!)
     }
 }
