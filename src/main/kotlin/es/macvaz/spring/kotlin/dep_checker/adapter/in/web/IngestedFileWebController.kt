@@ -19,7 +19,7 @@ import java.util.*
  * Main controller for the Server-Side HTML user interface. Relies on  mustache templates for the HTML rendering
  */
 @Controller
-class IngestedFileWebEndpoints(private val service: SearchIngestedFilesService) {
+class IngestedFileWebController(private val service: SearchIngestedFilesService) {
 
 	@GetMapping("/")
 	fun homePage(model: Model): String {
