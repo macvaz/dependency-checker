@@ -144,6 +144,12 @@ One example of how to send a JSON-based message to a topic using the kafka-conso
 
 The goal of the kafka consumer microservice is to store specific business events (like IngestedFiles) into de IngestedFile database table.
 
+=== Output ports
+
+Output ports are used in the hexagonal architecture by the application core to communicate with external dependencies. In this example, the only external dependency is the persistence engine and the source code is placed in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/adapter/out[adapter.out] package.
+
+In the example, it's used a relational jdbc-based in-memory database engine like H2. Application core use the interfaces defined in the output ports to isolate specifics of a given performance engine behind the output port interface.
+
 === Data domain
 All domain core entities are placed in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/domain[domain] package.
 
