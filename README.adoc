@@ -92,7 +92,7 @@ In order to fully understand the microservices and it's source code packages, ch
 
 The source code follows a *hexagonal/clean architecture*. The main target of this repo is to gain experience with this software architecture.
 
-=== Exposed interfaces (Input ports)
+=== Input ports (exposed interfaces)
 The project is divided in 3 main subsystems built on Spring Boot. All technological details (exchange formats, database technologies, integrations with messaging systems, etc) are placed in the  *adapter layer*.
 
 In this section, the exposed interfaces (input adapters in the hexagonal architecture terminology) that external systems invoke to communicate with the system are described. The source code is placed in the in *https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/adapter/in[adapter.in]* package
@@ -144,7 +144,7 @@ One example of how to send a JSON-based message to a topic using the kafka-conso
 
 The goal of the kafka consumer microservice is to store specific business events (like IngestedFiles) into de IngestedFile database table.
 
-=== Output ports
+=== Output ports (dependencies)
 
 Output ports are used in the hexagonal architecture by the application core to communicate with external dependencies. In this example, the only external dependency is the persistence engine and the source code is placed in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/adapter/out[adapter.out] package.
 
