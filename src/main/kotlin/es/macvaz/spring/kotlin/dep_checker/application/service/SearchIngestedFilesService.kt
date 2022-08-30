@@ -7,7 +7,8 @@ import es.macvaz.spring.kotlin.dep_checker.application.port.out.IngestedFileRepo
 import es.macvaz.spring.kotlin.dep_checker.domain.IngestedFile
 
 @Service
-class SearchIngestedFilesService(private val repository: IngestedFileRepositoryPort): SearchIngestedFilesUseCase {
+class SearchIngestedFilesService(private val repository: IngestedFileRepositoryPort):
+    SearchIngestedFilesUseCase {
     override fun findById(id: Long): IngestedFile? {
         return repository.findById(id)
     }

@@ -12,7 +12,7 @@ import org.springframework.ui.set
 import org.springframework.web.bind.annotation.GetMapping
 
 import es.macvaz.spring.kotlin.dep_checker.domain.IngestedFile
-import es.macvaz.spring.kotlin.dep_checker.application.service.SearchIngestedFilesService
+import es.macvaz.spring.kotlin.dep_checker.application.port.`in`.SearchIngestedFilesUseCase
 import es.macvaz.spring.kotlin.dep_checker.application.service.util.RenderedIngestedFile
 
 
@@ -20,17 +20,17 @@ import es.macvaz.spring.kotlin.dep_checker.application.service.util.RenderedInge
  * Main controller for the Server-Side HTML user interface. Relies on  mustache templates for the HTML rendering
  */
 @Controller
-class IngestedFileWebController(private val service: SearchIngestedFilesService) {
+class IngestedFileWebController(private val useCase: SearchIngestedFilesUseCase) {
 
 	@GetMapping("/")
 	fun homePage(model: Model): String {
-		model["ingestedFiles"] = service.findAll().map { it.render() }
+		model["ingestedFiles"] = useCase.findAll().map { it.render() }
 		return "home_page"
 	}
 
 	@GetMapping("/ingestedFile/{id}")
 	fun processPage(@PathVariable id: Long, model: Model): String {
-		val ingestion = service
+		val ingestion = useCase
 			.findById(id)
 			?.render()
 			?: throw ResponseStatusException(NOT_FOUND, "This ingestedFile does not exist")

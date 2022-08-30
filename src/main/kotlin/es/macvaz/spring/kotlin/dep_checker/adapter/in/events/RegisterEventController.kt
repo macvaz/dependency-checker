@@ -4,10 +4,10 @@ import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Component
 
-import es.macvaz.spring.kotlin.dep_checker.application.service.RegisterIngestionEventService
+import es.macvaz.spring.kotlin.dep_checker.application.port.`in`.RegisterIngestionEventUseCase
 
 @Component
-class IngestionKafkaConsumer (val service: RegisterIngestionEventService) {
+class IngestionKafkaConsumer (val useCase: RegisterIngestionEventUseCase) {
 
     @KafkaListener(topics = ["\${kafka.topics.ingestion.name}"], groupId = "\${kafka.topics.ingestion.group}")
     fun listenGroup(consumerRecord: ConsumerRecord<String, String>) {
@@ -15,6 +15,6 @@ class IngestionKafkaConsumer (val service: RegisterIngestionEventService) {
         val eventType = ConsumerRecordParser.decodeEventType(messageMap)
 
         if (eventType == EventTypes.Ingestion)
-            service.registerIngestionEvent(messageMap!!)
+            useCase.registerIngestionEvent(messageMap!!)
     }
 }
