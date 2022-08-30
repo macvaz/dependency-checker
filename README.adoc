@@ -90,10 +90,12 @@ In order to fully understand the microservices and it's source code packages, ch
 
 == 3. Project structure
 
-The source code follows a *hexagonal/clean architecture*. Not all principles of this architectural style are in place but at least the packages are created that way
+The source code follows a *hexagonal/clean architecture*. The main target of this repo is to gain experience with this software architecture.
 
-=== Subsystems
-The project is divided in 3 main subsystems built on Spring Boot. All technological (not business) details are structured around the *adapter layer*. All interfaces exposed by the system t be called by another systems are places in *adapter.in* package
+=== Exposed interfaces (Input ports)
+The project is divided in 3 main subsystems built on Spring Boot. All technological details (exchange formats, database technologies, integrations with messaging systems, etc) are placed in the  *adapter layer*.
+
+In this section, the exposed interfaces (input adapters in the hexagonal architecture terminology) that external systems invoke to communicate with the system are described. The source code is placed in the in *https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/adapter/in[adapter.in]* package
 
 ==== 1. REST API
 Source code for the REST API is in the https://github.com/macvaz/dependency-checker/tree/develop/src/main/kotlin/es/macvaz/spring/kotlin/dep_checker/adapter/in/api[adapter.in.api] package.
